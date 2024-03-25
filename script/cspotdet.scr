@@ -1,0 +1,30 @@
+<--start
+trace on
+
+sv_u = urhk_B2k_PrintRepos("BANCS")
+    print(sv_u)
+
+# creating repository CUST and class DATA
+IF(REPEXISTS("BANK")==0) THEN
+    CREATEREP("BANK")
+ENDIF
+
+IF(CLASSEXISTS("BANK","DATA")==0) THEN
+    CREATECLASS("BANK","DATA",5)
+ENDIF
+
+	
+	   BANK.DATA.Message = "This is first three page menu"
+           sv_z = "SuccessOrFailure|Y"
+           sv_u = urhk_SetOrbOut(sv_z)
+           BANK.DATA.Message = "RESULT_MSG|"+BANK.DATA.Message
+           sv_u = urhk_SetOrbOut(BANK.DATA.Message)
+           EXITSCRIPT
+
+
+exitscript
+
+trace off
+
+end-->
+

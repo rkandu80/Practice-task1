@@ -1,0 +1,22 @@
+<--start
+trace on
+
+sv_u = urhk_B2k_PrintRepos("BANCS")
+    print(sv_u)
+
+# creating repository CUST and class DATA
+IF(REPEXISTS("BANK")==0) THEN
+    CREATEREP("BANK")
+ENDIF
+
+IF(CLASSEXISTS("BANK","DATA")==0) THEN
+    CREATECLASS("BANK","DATA",5)
+ENDIF
+
+sv_b = urhk_SetOrbOut("SuccessOrFailure|Y") 
+exitscript
+
+trace off
+
+end-->
+
